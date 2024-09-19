@@ -31,17 +31,21 @@
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $imovel->endereco }}</td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $imovel->descricao }}</td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $imovel->proprietario }}</td>
-                                    <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $imovel->foto }}</td>
+                                    <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400"> <img width="100px" src="/storage/{{ $imovel->foto }}" alt="" srcset=""> </td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $imovel->created_at }}</td>
+                                    
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-                                        <a href="{{ route('imovels.show', $imovel->id) }}" class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">SHOW</a>
-                                        <a href="{{ route('imovels.edit', $imovel->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDIT</a>
-                                        {{-- add delete button using form tag --}}
-                                        <form method="imovel" action="{{ route('imovels.destroy', $imovel->id) }}" class="inline">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">DELETE</button>
-                                        </form>
+                                        <div class="flex flex-col gap-y-2">
+                                            <a href="{{ route('imovels.show', $imovel->id) }}" class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md block">SHOW</a>
+                                            <a href="{{ route('imovels.edit', $imovel->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md block">EDIT</a>
+
+                                            {{-- add delete button using form tag --}}
+                                            <form method="post" action="{{ route('imovels.destroy', $imovel->id) }}" class="inline">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md block">DELETE</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

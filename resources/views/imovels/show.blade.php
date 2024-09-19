@@ -33,7 +33,7 @@
                         </h2>
                 
                         <p class="mt-1 text-sm text-gray-600">
-                            <img class="h-64 w-128" src="{{ Storage::url($imovel->foto) }}" alt="{{ $imovel->endereco }}" srcset="">
+                            <img width="250px" class="h-64 w-128" src="{{ Storage::url($imovel->foto) }}" alt="{{ $imovel->endereco }}" srcset="">
                         </p>
                     </div>
                     <div class="mb-6">
