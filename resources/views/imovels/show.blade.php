@@ -1,7 +1,14 @@
+<?php
+    function formataData(String $data) {
+        $dateTime = new DateTime($data);
+        return $dateTime->format('Y/m/d H:i:s');
+    }
+?>
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ 'Show' }}
+            {{ 'VER #' . $imovel->id }}
         </h2>
     </x-slot>
 
@@ -51,14 +58,14 @@
                         </h2>
                 
                         <p class="mt-1 text-sm text-gray-600">
-                            {{ $imovel->created_at }}
+                            {{ formataData($imovel->created_at) }}
                         </p>
                     </div>
-                    <a href="{{ route('imovels.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">BACK</a>
+                    <a href="{{ route('imovels.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md flex items-center justify-center mb-5 w-32">VOLTAR</a>
                     <form action="{{ route('imovels.destroy', $imovel->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este imóvel?');">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md">EXCLUIR</button>
+                        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md w-32">EXCLUIR</button>
                     </form>                
 
                 </div>

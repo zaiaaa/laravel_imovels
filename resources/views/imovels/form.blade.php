@@ -51,7 +51,7 @@
                                 "/>
                             </label>
                             <div class="shrink-0 my-2">
-                                <img width="200px" id="foto_preview" class="h-64 w-128 object-cover rounded-md" src="{{ isset($imovel) ? Storage::url($imovel->foto) : '' }}" alt="Featured image preview" />
+                                <img maxWidth="400px" id="foto_preview" class="h-64 w-128 object-cover rounded-md" src="{{ isset($imovel) ? Storage::url($imovel->foto) : '' }}" alt="Featured image preview" />
                             </div>
                             <x-input-error class="mt-2" :messages="$errors->get('foto')" />
                         </div>
