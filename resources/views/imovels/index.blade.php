@@ -5,7 +5,8 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ 'Imovels' }}
             </h2>
-            <a href="{{ route('imovels.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">ADD</a>
+            <!-- erro na cor do botao -->
+            <a href="{{ route('imovels.create') }}" class="bg-red-500 text-white px-4 py-2 rounded-md">ADD</a>
         </div>
     </x-slot>
 
