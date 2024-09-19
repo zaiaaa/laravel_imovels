@@ -84,15 +84,15 @@ class ImovelController extends Controller
     {
         $imovel = Imovel::findOrFail($id);
         $validated = $request->validated();
-
+        
         if ($request->hasFile('foto')) {
             // delete image
             Storage::disk('public')->delete($imovel->foto);
-
+            
             $filePath = Storage::disk('public')->put('images/imovels/fotos', request()->file('foto'), 'public');
             $validated['foto'] = $filePath;
         }
-
+        
         $update = $imovel->update($validated);
 
         if($update) {

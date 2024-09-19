@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
             'endereco' => 'required|string|min:3|max:50',
             'descricao' => 'required|string|min:3|max:50',
             'proprietario' => 'required|string|min:3|max:50',
-            'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png,webp',
+            'foto' => 'nullable|image|max:1024|mimes:jpg,jpeg,png,webp',
         ];
     }
 }
